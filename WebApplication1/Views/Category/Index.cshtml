@@ -25,6 +25,9 @@
                     Category Name
                 </th>
                 <th scope="col">
+                    imge
+                </th>
+                <th scope="col">
                 </th>
             </tr>
         </thead>
@@ -34,6 +37,9 @@
                 <tr class="table-primary">
                     <td scope="row" width="30%">
                         @item.Name
+                    </td>
+                    <td>
+                        <img src="@item.imge64"  style="width:100px" class="img-thumbnail"    />
                     </td>
                     <td>
                         <a asp-controller="Category" asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-sm btn-success">

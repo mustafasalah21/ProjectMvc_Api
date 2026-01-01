@@ -11,11 +11,12 @@ namespace WebApplication1.Controllers
         {
            //_repository = repository;
            myUnit = _myUnit;
+              
         }
 
         //private IRepository<Category> _repository;
         private readonly IUnitOfWork myUnit;
-
+   
 
         //public IActionResult Index()
         //{
@@ -45,6 +46,16 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
+                
+                if (category.clinetfile != null)
+                {
+                    MemoryStream stream = new MemoryStream();
+                    category.clinetfile.CopyTo(stream);
+                    category.dbimge = stream.ToArray();
+
+
+
+                }
                 myUnit.categories.AddOne(category);
                 return RedirectToAction("Index");
             }
